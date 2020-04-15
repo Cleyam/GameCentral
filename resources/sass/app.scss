@@ -6,3 +6,27 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+// Colors
+
+.bg-blue {
+    background-color: #1f266a;
+}
+
+.bg-orange {
+    background-color: #e76517;
+}
+
+.blue {
+    color: #1f266a;
+}
+
+a,
+.orange {
+    color: #e76517;
+}
+
+a:hover {
+    color: #f57c31;
+}
