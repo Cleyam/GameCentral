@@ -10903,3 +10903,13 @@ a:hover {
   color: #f57c31;
 }
 
+.logout {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+}
+
+.fs-30 {
+  font-size: 30px;
+}
+

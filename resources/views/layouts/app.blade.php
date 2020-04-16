@@ -4,28 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title')</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     {{-- Icons --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
+
         @guest
         <main class="py-4">
             <div class="container">
@@ -57,20 +52,22 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt"></i>logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-        </main>
-        @endguest
+
+            {{-- Logout button --}}
+            <logout-button route="{{ route('logout') }}"></logout-button>
+
+            {{-- <div>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt orange logout fs-30"></i>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+    </div> --}}
+    </main>
+    @endguest
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
 </body>
 
 </html>
