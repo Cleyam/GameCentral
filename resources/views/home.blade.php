@@ -1,23 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+<div id="search-bloc" class="container">
+    <div class="d-flex justify-content-around">
+        <button class="btn bg-orange text-light font-weight-bold mt-4 shadow">
+            Rechercher un jeu
+        </button>
+        <button class="btn bg-orange text-light font-weight-bold mt-4 shadow">
+            Rechercher un client
+        </button>
     </div>
+    <form action="" method="post"></form>
 </div>
 @endsection
