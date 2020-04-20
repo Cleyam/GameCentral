@@ -56,8 +56,17 @@
             {{-- Logout button --}}
             <logout-button route="{{ route('logout') }}"></logout-button>
 
-        </main>
-        @endguest
+            {{-- <div>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt orange logout fs-30"></i>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+    </div> --}}
+    </main>
+    @endguest
     </div>
 </body>
 
