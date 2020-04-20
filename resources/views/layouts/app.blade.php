@@ -20,53 +20,18 @@
 
 <body>
     <div id="app">
-
+        {{-- Unidentified --}}
         @guest
-        <main class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <a href="{{ url('/') }}">
-                        <img class="px-3 img-fluid" src="https://i.imgur.com/UTFJMhw.png" alt="GameCentral logo"
-                            title="GameCentral logo">
-                    </a>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-        </main>
+        <content-bloc route="{{ url('/') }}">
+            @yield('content')
+        </content-bloc>
+        {{-- Logged in --}}
         @else
-        <main class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <a href="{{ url('/') }}">
-                        <img class="px-3 img-fluid" src="https://i.imgur.com/UTFJMhw.png" alt="GameCentral logo"
-                            title="GameCentral logo">
-                    </a>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-
-            {{-- Logout button --}}
-            <logout-button route="{{ route('logout') }}"></logout-button>
-
-            {{-- <div>
-        <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            <i class="fas fa-sign-out-alt orange logout fs-30"></i>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-    </div> --}}
-    </main>
-    @endguest
+        <content-bloc route="{{ url('/') }}">
+            @yield('content')
+        </content-bloc>
+        <logout-button route="{{ route('logout') }}"></logout-button>
+        @endguest
     </div>
 </body>
 

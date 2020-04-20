@@ -1,0 +1,26 @@
+<template>
+    <main class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <a :href="route">
+                    <img
+                        class="px-3 img-fluid"
+                        src="https://i.imgur.com/UTFJMhw.png"
+                        alt="GameCentral logo"
+                        title="GameCentral logo"
+                    />
+                </a>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+    </main>
+</template>
+<script>
+export default {
+    props: ["route"]
+};
+</script>
