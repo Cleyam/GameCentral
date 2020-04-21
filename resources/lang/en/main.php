@@ -2,6 +2,6 @@
 
 return [
     'searchGame' => 'Search for Game',
-    'searchUser' => 'Search for Customer'
+    'searchCustomer' => 'Search for Customer'
 
 ];
