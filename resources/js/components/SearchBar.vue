@@ -23,45 +23,44 @@
                 <span>{{ langCustomer }}</span>
             </label>
         </div>
-        <!-- Search forms -->
-        <form action="" method="POST" v-if="showGame">
+
+        <!-- Search Game Form -->
+        <form action="/searchgame" method="POST" v-if="showGame">
+            <input type="hidden" name="_token" :value="csrf" />
             <div class="input-group md-form form-sm form-2 pl-0">
                 <input
+                    name="game"
                     class="form-control my-0 py-1 amber-border"
                     type="text"
                     :placeholder="langGame"
                     :aria-label="langGame"
                 />
-                <div class="input-group-append">
-                    <span
-                        class="input-group-text amber lighten-3"
-                        id="basic-text1"
-                        ><i
-                            class="fas fa-search text-grey"
-                            aria-hidden="true"
-                        ></i
-                    ></span>
-                </div>
+                <button
+                    type="submit"
+                    class="input-group-append input-group-text amber lighten-3"
+                >
+                    <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                </button>
             </div>
         </form>
-        <form action="" method="POST" v-if="showCustomer">
+
+        <!-- Search Customer Form -->
+        <form action="/searchcustomer" method="POST" v-if="showCustomer">
+            <input type="hidden" name="_token" :value="csrf" />
             <div class="input-group md-form form-sm form-2 pl-0">
                 <input
+                    name="customer"
                     class="form-control my-0 py-1 amber-border"
                     type="text"
                     :placeholder="langCustomer"
                     :aria-label="langCustomer"
                 />
-                <div class="input-group-append">
-                    <span
-                        class="input-group-text amber lighten-3"
-                        id="basic-text1"
-                        ><i
-                            class="fas fa-search text-grey"
-                            aria-hidden="true"
-                        ></i
-                    ></span>
-                </div>
+                <button
+                    type="submit"
+                    class="input-group-append input-group-text amber lighten-3"
+                >
+                    <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                </button>
             </div>
         </form>
     </div>
@@ -73,7 +72,8 @@ export default {
     data() {
         return {
             showGame: false,
-            showCustomer: false
+            showCustomer: false,
+            csrf: document.head.querySelector('meta[name="csrf-token"]').content
         };
     },
     methods: {
