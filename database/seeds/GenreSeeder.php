@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class GenreSeeder extends Seeder
 {
@@ -12,151 +13,250 @@ class GenreSeeder extends Seeder
     public function run()
     {
         DB::table('genres')->insert([
-            'name' => 'Platformer'
+            'name' => 'Platformer',
         ]);
         DB::table('genres')->insert([
-            'name' => 'Shooter'
+            'name' => 'Shooter',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Fighting'
+            'name' => 'Fighting',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Beat-em up'
+            'name' => 'Beat-em up',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Stealth'
+            'name' => 'Stealth',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Survival'
+            'name' => 'Survival',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Rythm'
+            'name' => 'Rythm',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Survival horror'
+            'name' => 'Survival horror',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Metroidvania'
+            'name' => 'Metroidvania',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Text adventure'
+            'name' => 'Text adventure',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Graphic adventure'
+            'name' => 'Graphic adventure',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Visual novel'
+            'name' => 'Visual novel',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Interactive movie'
+            'name' => 'Interactive movie',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Real-time 3D'
+            'name' => 'Real-time 3D',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Action RPG'
+            'name' => 'Action RPG',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'MMORPG'
+            'name' => 'MMORPG',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Roguelike'
+            'name' => 'Roguelike',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Tactical RPG'
+            'name' => 'Tactical RPG',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Sandbox'
+            'name' => 'Sandbox',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'First-person party-based RPG'
+            'name' => 'First-person party-based RPG',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Construction & Management simulation'
+            'name' =>
+            'construction & Management simulation',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Life simulation'
+            'name' => 'Life simulation',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Vehicule simulation'
+            'name' => 'Vehicule simulation',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => '4X'
+            'name' => '4X',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Artillery'
+            'name' => 'Artillery',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Real-time strategy'
+            'name' => 'Real-time strategy',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Teal-time tactics'
+            'name' => 'Teal-time tactics',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Multiplayer online battle arena'
+            'name' => 'Multiplayer online battle arena',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Tower defense'
+            'name' => 'Tower defense',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Turn-based strategy'
+            'name' => 'Turn-based strategy',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Turn-based tactics'
+            'name' => 'Turn-based tactics',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Wargame'
+            'name' => 'Wargame',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Grand strategy wargame'
+            'name' => 'Grand strategy wargame',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Racing'
+            'name' => 'Racing',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Team sports'
+            'name' => 'Team sports',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Competitive'
+            'name' =>
+            'competitive',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Sports-based fighting'
+            'name' => 'Sports-based fighting',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Logic game'
+            'name' => 'Logic game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Trivia game'
+            'name' => 'Trivia game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Idle gaming'
+            'name' => 'Idle gaming',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Casual game'
+            'name' =>
+            'casual game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Party game'
+            'name' => 'Party game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Programming game'
+            'name' => 'Programming game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Board / Card game'
+            'name' => 'Board / Card game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Massive multiplayer online'
+            'name' => 'Massive multiplayer online',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Advergame'
+            'name' => 'Advergame',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Art game'
+            'name' => 'Art game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Educational game'
+            'name' => 'Educational game',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('genres')->insert([
-            'name' => 'Exergame'
+            'name' => 'Exergame',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

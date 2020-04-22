@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class PlatformSeeder extends Seeder
 {
@@ -12,64 +13,104 @@ class PlatformSeeder extends Seeder
     public function run()
     {
         DB::table('platforms')->insert([
-            'name' => 'PC'
+            'name' => 'PC',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Mac'
+            'name' => 'Mac',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Linux'
+            'name' => 'Linux',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Mobile - Android'
+            'name' => 'Mobile - Android',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Mobile - IOS'
+            'name' => 'Mobile - IOS',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Microsoft - Xbox 360'
+            'name' => 'Microsoft - Xbox 360',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Microsoft - Xbox One'
+            'name' => 'Microsoft - Xbox One',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Microsoft - Xbox'
+            'name' => 'Microsoft - Xbox',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Sony - Playstation'
+            'name' => 'Sony - Playstation',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Sony - Playstation 2'
+            'name' => 'Sony - Playstation 2',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Sony - Playstation 3'
+            'name' => 'Sony - Playstation 3',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Sony - Playstation 4'
+            'name' => 'Sony - Playstation 4',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - GameBoy'
+            'name' => 'Nintendo - GameBoy',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - Gameboy Advance'
+            'name' => 'Nintendo - Gameboy Advance',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - Switch'
+            'name' => 'Nintendo - Switch',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - Wii'
+            'name' => 'Nintendo - Wii',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - Wii U'
+            'name' => 'Nintendo - Wii U',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - DS'
+            'name' => 'Nintendo - DS',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintedo - GameBoy Color'
+            'name' => 'Nintedo - GameBoy Color',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('platforms')->insert([
-            'name' => 'Nintendo - Nintendo 3DS'
+            'name' => 'Nintendo - Nintendo 3DS',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

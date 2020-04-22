@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ModeSeeder extends Seeder
 {
@@ -12,13 +13,19 @@ class ModeSeeder extends Seeder
     public function run()
     {
         DB::table('modes')->insert([
-            'name' => 'Solo'
+            'name' => 'Solo',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('modes')->insert([
-            'name' => 'Local Multiplayer'
+            'name' => 'Local Multiplayer',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('modes')->insert([
-            'name' => 'Online Multiplayer'
+            'name' => 'Online Multiplayer',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }
