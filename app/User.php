@@ -39,4 +39,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getEmployees()
+    {
+        $employees = User::where('auth', 'employee')->select('*')->get();
+        return $employees;
+    }
 }

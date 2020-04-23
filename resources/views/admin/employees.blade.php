@@ -5,4 +5,12 @@
     game-route="{{ url('admin/games') }}" customers="@lang('admin.customers')"
     customer-route="{{ url('admin/customers') }}" employees="@lang('admin.employees')"
     employee-route="{{ url('admin/employees') }}"></admin-navbar>
+@foreach ($employees as $employee)
+{{ $employee }}
+@endforeach
+
+<table-employees :data="{{ $employees }}"></table-employees>
+
+
+
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -28,6 +29,7 @@ class AdminController extends Controller
 
     public function employees()
     {
-        return view('admin/employees');
+        $employees = User::getEmployees();
+        return view('admin/employees')->with('employees', $employees);
     }
 }

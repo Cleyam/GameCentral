@@ -6,6 +6,7 @@ Vue.component('content-bloc', require('./components/ContentBloc.vue').default);
 Vue.component('logout-button', require('./components/LogoutButton.vue').default);
 Vue.component('search-bar', require('./components/SearchBar.vue').default);
 Vue.component('admin-navbar', require('./components/AdminNavbar.vue').default);
+Vue.component('table-employees', require('./components/TableEmployees.vue').default);
 
 const app = new Vue({
     el: '#app',
