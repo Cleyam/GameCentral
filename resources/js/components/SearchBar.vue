@@ -37,9 +37,9 @@
                 />
                 <button
                     type="submit"
-                    class="input-group-append input-group-text amber lighten-3"
+                    class="input-group-append input-group-text amber lighten-3 bg-blue"
                 >
-                    <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                    <i class="fas fa-search text-light" aria-hidden="true"></i>
                 </button>
             </div>
         </form>
@@ -57,9 +57,9 @@
                 />
                 <button
                     type="submit"
-                    class="input-group-append input-group-text amber lighten-3"
+                    class="input-group-append input-group-text amber lighten-3 bg-blue"
                 >
-                    <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                    <i class="fas fa-search text-light" aria-hidden="true"></i>
                 </button>
             </div>
         </form>

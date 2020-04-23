@@ -42,7 +42,19 @@ class User extends Authenticatable
 
     public static function getEmployees()
     {
-        $employees = User::where('auth', 'employee')->select('*')->get();
+        $employees = User::where('auth', 'employee')->where('deleted_at', null)->select('*')->get();
         return $employees;
+    }
+
+    public static function getEmployee($id)
+    {
+        $employee = User::where('auth', 'employee')->where('deleted_at', null)->where('id', $id)->select('*')->first();
+        return $employee;
+    }
+
+    public static function deleteEmployee($id)
+    {
+        $deleteEmployee = User::where('auth', 'employee')->where('deleted_at', null)->where('id', $id)->delete();
+        return $deleteEmployee;
     }
 }

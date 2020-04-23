@@ -32,4 +32,17 @@ class AdminController extends Controller
         $employees = User::getEmployees();
         return view('admin/employees')->with('employees', $employees);
     }
+
+    public function deleteEmployee($id)
+    {
+        User::deleteEmployee($id);
+        $employees = User::getEmployees();
+        return redirect('admin/employees')->with('employees', $employees);
+    }
+
+    public function employee($id)
+    {
+        $employee = User::getEmployee($id);
+        return view('admin/employee')->with('employee', $employee);
+    }
 }

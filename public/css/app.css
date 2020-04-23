@@ -10890,6 +10890,10 @@ a.text-dark:focus {
   background-color: #e76517;
 }
 
+.bg-none {
+  background-color: none;
+}
+
 .blue {
   color: #1f266a;
 }
