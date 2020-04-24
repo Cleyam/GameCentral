@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\AdminUserUpdate;
+use App\Http\Requests\AdminUserRequest;
 use App\User;
 
 
@@ -49,9 +49,21 @@ class AdminController extends Controller
         return view('admin/employee')->with('employee', $employee);
     }
 
-    public function updateEmployee(AdminUserUpdate $request, $id)
+    public function updateEmployee(AdminUserRequest $request, $id)
     {
         User::updateEmployee($request, $id);
+        $employees = User::getEmployees();
+        return redirect('admin/employees')->with('employees', $employees);
+    }
+
+    public function newEmployee()
+    {
+        return view('admin/employeeNew');
+    }
+
+    public function addEmployee(AdminUserRequest $request)
+    {
+        User::addEmployee($request);
         $employees = User::getEmployees();
         return redirect('admin/employees')->with('employees', $employees);
     }

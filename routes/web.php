@@ -28,4 +28,6 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function (
     Route::post('admin/employees/delete{id}', 'AdminController@deleteEmployee');
     Route::get('admin/employee/{id}', 'AdminController@employee');
     Route::post('admin/employee/update{id}', 'AdminController@updateEmployee');
+    Route::get('admin/employees/new', 'AdminController@newEmployee');
+    Route::post('admin/employees/new', 'AdminController@addEmployee');
 });

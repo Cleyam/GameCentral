@@ -13,6 +13,7 @@ return [
     'surname' => 'Prénom',
     'phone' => 'Numéro de téléphone',
     'password' => 'Nouveau mot de passe',
-    'update' => 'Modifier'
+    'update' => 'Modifier',
+    'add' => 'Ajouter'
 
 ];

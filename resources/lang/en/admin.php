@@ -13,6 +13,7 @@ return [
     'surname' => 'Surname',
     'phone' => 'Phone Number',
     'password' => 'New Password',
-    'update' => 'Update'
+    'update' => 'Update',
+    'add' => 'Add'
 
 ];
