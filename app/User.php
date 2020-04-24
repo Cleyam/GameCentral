@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
+use App\Http\Requests\AdminUserUpdate;
 
 class User extends Authenticatable
 {
@@ -56,5 +58,11 @@ class User extends Authenticatable
     {
         $deleteEmployee = User::where('auth', 'employee')->where('deleted_at', null)->where('id', $id)->delete();
         return $deleteEmployee;
+    }
+
+    public static function updateEmployee(AdminUserUpdate $request, $id)
+    {
+        $updateEmployee = User::where('auth', 'employee')->where('deleted_at', null)->where('id', $id)->update(['login' => $request->input('login'), 'email' => $request->input('email'), 'name' => $request->input('name'), 'surname' => $request->input('surname'), 'phone' => $request->input('phone'), 'password' => bcrypt($request->input('password'))]);
+        return $updateEmployee;
     }
 }

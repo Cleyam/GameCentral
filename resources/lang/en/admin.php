@@ -8,6 +8,11 @@ return [
     'login' => 'Login',
     'email' => 'Email',
     'see' => 'See',
-    'delete' => 'Delete'
+    'delete' => 'Delete',
+    'name' => 'Name',
+    'surname' => 'Surname',
+    'phone' => 'Phone Number',
+    'password' => 'New Password',
+    'update' => 'Update'
 
 ];

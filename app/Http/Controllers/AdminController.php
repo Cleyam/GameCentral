@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests\AdminUserUpdate;
 use App\User;
+
 
 class AdminController extends Controller
 {
@@ -44,5 +47,12 @@ class AdminController extends Controller
     {
         $employee = User::getEmployee($id);
         return view('admin/employee')->with('employee', $employee);
+    }
+
+    public function updateEmployee(AdminUserUpdate $request, $id)
+    {
+        User::updateEmployee($request, $id);
+        $employees = User::getEmployees();
+        return redirect('admin/employees')->with('employees', $employees);
     }
 }

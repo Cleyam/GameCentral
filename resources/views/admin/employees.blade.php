@@ -6,6 +6,6 @@
     customer-route="{{ url('admin/customers') }}" employees="@lang('admin.employees')"
     employee-route="{{ url('admin/employees') }}"></admin-navbar>
 <h1 class="text-center my-3 blue font-weight-bold">@lang('admin.employees')</h1>
-<table-employees :data="{{ $employees }}" login="@lang('admin.login')" email="@lang('admin.email')"
-    see="@lang('admin.see')" delete-user="@lang('admin.delete')"></table-employees>
+<admin-table-employees :data="{{ $employees }}" login="@lang('admin.login')" email="@lang('admin.email')"
+    see="@lang('admin.see')" delete-user="@lang('admin.delete')"></admin-table-employees>
 @endsection

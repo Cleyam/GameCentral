@@ -1,7 +1,7 @@
 <template>
     <main class="py-4">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="d-flex justify-content-center">
                 <a :href="route">
                     <img
                         class="px-3 img-fluid"
@@ -12,7 +12,7 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="d-flex justify-content-center">
             <div class="col-md-8">
                 <slot></slot>
             </div>
