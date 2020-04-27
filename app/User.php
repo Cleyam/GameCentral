@@ -42,6 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Employee Methods
+
     public static function getEmployees()
     {
         $employees = User::where('auth', 'employee')->where('deleted_at', null)->select('*')->get();
@@ -70,5 +72,37 @@ class User extends Authenticatable
     {
         $addEmployee = User::create(['login' => $request->input('login'), 'email' => $request->input('email'), 'name' => $request->input('name'), 'surname' => $request->input('surname'), 'phone' => $request->input('phone'), 'auth' => 'employee', 'password' => bcrypt($request->input('password'))]);
         return $addEmployee;
+    }
+
+    // Customer Methods 
+
+    public static function getCustomers()
+    {
+        $customers = User::where('auth', 'customer')->where('deleted_at', null)->select('*')->get();
+        return $customers;
+    }
+
+    public static function getCustomer($id)
+    {
+        $customer = User::where('auth', 'customer')->where('deleted_at', null)->where('id', $id)->select('*')->first();
+        return $customer;
+    }
+
+    public static function deleteCustomer($id)
+    {
+        $deleteCustomer = User::where('auth', 'customer')->where('deleted_at', null)->where('id', $id)->delete();
+        return $deleteCustomer;
+    }
+
+    public static function updateCustomer(AdminUserRequest $request, $id)
+    {
+        $updateCustomer = User::where('auth', 'customer')->where('deleted_at', null)->where('id', $id)->update(['login' => $request->input('login'), 'email' => $request->input('email'), 'name' => $request->input('name'), 'surname' => $request->input('surname'), 'phone' => $request->input('phone'), 'password' => bcrypt($request->input('password'))]);
+        return $updateCustomer;
+    }
+
+    public static function addCustomer(AdminUserRequest $request)
+    {
+        $addCustomer = User::create(['login' => $request->input('login'), 'email' => $request->input('email'), 'name' => $request->input('name'), 'surname' => $request->input('surname'), 'phone' => $request->input('phone'), 'auth' => 'customer', 'password' => bcrypt($request->input('password'))]);
+        return $addCustomer;
     }
 }

@@ -9,6 +9,9 @@ Vue.component('admin-navbar', require('./components/AdminNavbar.vue').default);
 Vue.component('admin-table-employees', require('./components/AdminTableEmployees.vue').default);
 Vue.component('admin-update-employee', require('./components/AdminUpdateEmployee.vue').default);
 Vue.component('admin-add-employee', require('./components/AdminAddEmployee.vue').default);
+Vue.component('admin-table-customers', require('./components/AdminTableCustomers.vue').default);
+Vue.component('admin-update-customer', require('./components/AdminUpdateCustomer.vue').default);
+Vue.component('admin-add-customer', require('./components/AdminAddCustomer.vue').default);
 
 const app = new Vue({
     el: '#app',

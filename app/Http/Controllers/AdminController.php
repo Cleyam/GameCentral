@@ -20,15 +20,52 @@ class AdminController extends Controller
         return view('admin/dashboard');
     }
 
-    public function customers()
-    {
-        return view('admin/customers');
-    }
-
     public function games()
     {
         return view('admin/games');
     }
+
+    // Customer Controllers
+
+    public function customers()
+    {
+        $customers = User::getCustomers();
+        return view('admin/customers')->with('customers', $customers);
+    }
+
+    public function deleteCustomer($id)
+    {
+        User::deleteCustomer($id);
+        $customers = User::getCustomers();
+        return redirect('admin/customers')->with('customers', $customers);
+    }
+
+    public function customer($id)
+    {
+        $customer = User::getCustomer($id);
+        return view('admin/customer')->with('customer', $customer);
+    }
+
+    public function updateCustomer(AdminUserRequest $request, $id)
+    {
+        User::updateCustomer($request, $id);
+        $customers = User::getCustomers();
+        return redirect('admin/customers')->with('customers', $customers);
+    }
+
+    public function newCustomer()
+    {
+        return view('admin/customerNew');
+    }
+
+    public function addCustomer(AdminUserRequest $request)
+    {
+        User::addCustomer($request);
+        $customers = User::getCustomers();
+        return redirect('admin/customers')->with('customers', $customers);
+    }
+
+    // Employee Controllers
 
     public function employees()
     {

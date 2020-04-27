@@ -22,8 +22,15 @@ Route::get('/', 'HomeController@index')->name('home');
 // ADMIN ROUTES
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function () {
     Route::get('/admin', 'AdminController@dashboard')->name('dashboard');
-    Route::get('admin/customers', 'AdminController@customers')->name('customers');
     Route::get('admin/games', 'AdminController@games')->name('games');
+    // Customer routes
+    Route::get('admin/customers', 'AdminController@customers')->name('customers');
+    Route::post('admin/customers/delete{id}', 'AdminController@deleteCustomer');
+    Route::get('admin/customer/{id}', 'AdminController@customer');
+    Route::post('admin/customer/update{id}', 'AdminController@updateCustomer');
+    Route::get('admin/customers/new', 'AdminController@newCustomer');
+    Route::post('admin/customers/new', 'AdminController@addCustomer');
+    // Employee routes
     Route::get('admin/employees', 'AdminController@employees')->name('employees');
     Route::post('admin/employees/delete{id}', 'AdminController@deleteEmployee');
     Route::get('admin/employee/{id}', 'AdminController@employee');

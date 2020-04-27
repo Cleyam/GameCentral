@@ -14,6 +14,7 @@ return [
     'phone' => 'Phone Number',
     'password' => 'New Password',
     'update' => 'Update',
-    'add' => 'Add'
+    'add' => 'Add',
+    'created' => 'Inscription Date'
 
 ];
