@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\AdminUserRequest;
 use App\User;
+use App\Game;
+use App\Genre;
 
 
 class AdminController extends Controller
@@ -20,9 +22,16 @@ class AdminController extends Controller
         return view('admin/dashboard');
     }
 
+    // Game Controllers
+
     public function games()
     {
-        return view('admin/games');
+        $games = Game::getGames();
+        foreach ($games as &$game) {
+            $game->setGenre();
+        }
+        // $games->dd();
+        return view('admin/games')->with('games', $games);
     }
 
     // Customer Controllers

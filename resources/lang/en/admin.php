@@ -15,6 +15,10 @@ return [
     'password' => 'New Password',
     'update' => 'Update',
     'add' => 'Add',
-    'created' => 'Inscription Date'
+    'created' => 'Inscription Date',
+    'developer' => 'Developer(s)',
+    'genre' => 'Genre(s)',
+    'release' => 'Release Date',
+    'stock' => 'Stock'
 
 ];

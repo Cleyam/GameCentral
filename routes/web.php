@@ -22,7 +22,13 @@ Route::get('/', 'HomeController@index')->name('home');
 // ADMIN ROUTES
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function () {
     Route::get('/admin', 'AdminController@dashboard')->name('dashboard');
+    // Game routes
     Route::get('admin/games', 'AdminController@games')->name('games');
+    Route::post('admin/games/delete{id}', 'AdminController@deleteGame');
+    Route::get('admin/game/{id}', 'AdminController@Game');
+    Route::post('admin/game/update{id}', 'AdminController@updateGame');
+    Route::get('admin/games/new', 'AdminController@newGame');
+    Route::post('admin/games/new', 'AdminController@addGame');
     // Customer routes
     Route::get('admin/customers', 'AdminController@customers')->name('customers');
     Route::post('admin/customers/delete{id}', 'AdminController@deleteCustomer');
