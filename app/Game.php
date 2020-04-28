@@ -21,22 +21,31 @@ class Game extends Model
     protected $fillable = [
         'reference', 'dateRelease', 'stock', 'synopsis', 'miniature'
     ];
-    protected $genres;
 
-    public function setGenre()
+    // Eloquent Relationships
+    public function genres()
     {
-        $this->genres = Genre::getGenres($this->id);
+        return $this->belongsToMany('App\Genre', 'game_genres', 'games_id', 'genres_id');
     }
 
+    public function developers()
+    {
+        return $this->belongsToMany('App\Developer', 'game_developers', 'games_id', 'developers_id');
+    }
+
+    public function platforms()
+    {
+        return $this->belongsToMany('App\Platform', 'game_platforms', 'games_id', 'platforms_id');
+    }
+
+    // Methods
     public static function getGames()
     {
         $games = Game::where('games.deleted_at', null)
-            // ->join('game_genres', 'games.id', '=', 'game_genres.games_id')
-            // ->join('genres', 'genres.id', '=', 'game_genres.genres_id')
-            // ->join('game_developers', 'games.id', '=', 'game_developers.games_id')
-            // ->join('developers', 'developers.id', '=', 'game_developers.developers_id')
+            ->with('genres')
+            ->with('developers')
+            ->with('platforms')
             ->select('*')
-
             ->get();
 
         return $games;

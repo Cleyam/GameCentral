@@ -14,8 +14,19 @@
         <tbody class="text-center">
             <tr v-for="game in data" :key="game.id">
                 <td>{{ game.reference }}</td>
-                <td>{{ game.developer }}</td>
-                <!-- <td v-for="genres in game">{{ genres.name }}</td> -->
+                <td>
+                    <span
+                        v-for="developer in game.developers"
+                        :key="developer.id"
+                    >
+                        {{ developer.name }}<br />
+                    </span>
+                </td>
+                <td>
+                    <span v-for="genre in game.genres" :key="genre.id">
+                        {{ genre.name }}<br />
+                    </span>
+                </td>
                 <td>{{ game.dateRelease.substring(0, 10) }}</td>
                 <td>{{ game.stock }}</td>
                 <td>

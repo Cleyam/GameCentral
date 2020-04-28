@@ -27,10 +27,6 @@ class AdminController extends Controller
     public function games()
     {
         $games = Game::getGames();
-        foreach ($games as &$game) {
-            $game->setGenre();
-        }
-        // $games->dd();
         return view('admin/games')->with('games', $games);
     }
 
