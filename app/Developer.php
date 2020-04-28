@@ -17,4 +17,12 @@ class Developer extends Model
     protected $fillable = [
         'name'
     ];
+
+    public static function getDevelopers()
+    {
+        $developers = Developer::where('developers.deleted_at', null)
+            ->select('*')
+            ->get();
+        return $developers;
+    }
 }

@@ -8,6 +8,9 @@ use App\Http\Requests\AdminUserRequest;
 use App\User;
 use App\Game;
 use App\Genre;
+use App\Mode;
+use App\Platform;
+use App\Developer;
 
 
 class AdminController extends Controller
@@ -28,6 +31,23 @@ class AdminController extends Controller
     {
         $games = Game::getGames();
         return view('admin/games')->with('games', $games);
+    }
+
+    public function deleteGame($id)
+    {
+        Game::deleteGame($id);
+        $games = Game::getGames();
+        return view('admin/games')->with('games', $games);
+    }
+
+    public function game($id)
+    {
+        $game = Game::getGame($id);
+        $genres = Genre::getGenres();
+        $modes = Mode::getModes();
+        $platforms = Platform::getPlatforms();
+        $developers = Developer::getDevelopers();
+        return view('admin/game')->with('game', $game)->with('genres', $genres)->with('modes', $modes)->with('platforms', $platforms)->with('developers', $developers);
     }
 
     // Customer Controllers

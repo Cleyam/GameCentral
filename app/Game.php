@@ -50,4 +50,22 @@ class Game extends Model
 
         return $games;
     }
+
+    public static function deleteGame($id)
+    {
+        $deleteGame = Game::where('deleted_at', null)->where('id', $id)->delete();
+        return $deleteGame;
+    }
+
+    public static function getGame($id)
+    {
+        $game = Game::where('deleted_at', null)
+            ->where('id', $id)
+            ->with('genres')
+            ->with('developers')
+            ->with('platforms')
+            ->select('*')
+            ->first();
+        return $game;
+    }
 }

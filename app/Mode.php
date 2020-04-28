@@ -17,4 +17,12 @@ class Mode extends Model
     protected $fillable = [
         'name'
     ];
+
+    public static function getModes()
+    {
+        $modes = Mode::where('modes.deleted_at', null)
+            ->select('*')
+            ->get();
+        return $modes;
+    }
 }

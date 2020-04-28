@@ -17,4 +17,12 @@ class Genre extends Model
     protected $fillable = [
         'name'
     ];
+
+    public static function getGenres()
+    {
+        $genres = Genre::where('genres.deleted_at', null)
+            ->select('*')
+            ->get();
+        return $genres;
+    }
 }

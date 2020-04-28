@@ -19,6 +19,9 @@ return [
     'developer' => 'Developpeur(s)',
     'genre' => 'Genre(s)',
     'release' => 'Date de sortie',
-    'stock' => 'Stock'
+    'stock' => 'Stock',
+    'synopsis' => 'Synopsis',
+    'mode' => 'Mode(s)',
+    'platform' => 'Plateforme(s)'
 
 ];

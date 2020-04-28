@@ -17,8 +17,8 @@ class GameGenres extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('genres_id')->constrained();
-            $table->foreignId('games_id')->constrained();
+            $table->foreignId('genres_id')->constrained()->onDelete('cascade');
+            $table->foreignId('games_id')->constrained()->onDelete('cascade');
         });
     }
 

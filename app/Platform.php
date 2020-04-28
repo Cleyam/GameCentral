@@ -17,4 +17,12 @@ class Platform extends Model
     protected $fillable = [
         'name'
     ];
+
+    public static function getPlatforms()
+    {
+        $platforms = Platform::where('platforms.deleted_at', null)
+            ->select('*')
+            ->get();
+        return $platforms;
+    }
 }
