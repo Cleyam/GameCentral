@@ -42,56 +42,92 @@
                 />
             </div>
         </div>
-        <div class="input-group md-form form-sm form-2 pl-0">
-            <div class="d-block col-12 col-md-4">
-                <label class="font-weight-bold blue mt-2" for="genres">{{
-                    genre
-                }}</label>
-                <!-- <select name="genres" class="custom-select" multiple>
-                    <option
-                        v-for="genre in genres"
-                        :key="genre.id"
-                        :value="genre.id"
-                        >{{ genre.name }}</option
-                    >
-                </select> -->
+        <div class="input-group md-form form-sm form-2 pl-0 mt-2">
+            <div class="btn-group col-12 col-md-3">
+                <button
+                    type="button"
+                    class="btn btn-default text-light bg-orange dropdown-toggle font-weight-bold mt-2"
+                    data-toggle="dropdown"
+                >
+                    {{ genre }}<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    <li v-for="genre in genres" :key="genre.id">
+                        <input
+                            type="checkbox"
+                            :name="'genre[' + genre.id + ']'"
+                        />
+                        <label :for="'genre[' + genre.id + ']'">{{
+                            genre.name
+                        }}</label>
+                    </li>
+                </ul>
+            </div>
 
-                <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
-                <ul class="dropdown-menu scrollable-menu" role="menu"  >
-                    <li v-for="genre in genres"
-                        :key="genre.id"><input type="checkbox" :name="'genre['+genre.id+']'"><label :for="'genre['+genre.id+']'">{{ genre.name }}</label></li>
+            <div class="btn-group col-12 col-md-3">
+                <button
+                    type="button"
+                    class="btn btn-default text-light bg-orange dropdown-toggle font-weight-bold mt-2"
+                    data-toggle="dropdown"
+                >
+                    {{ platform }}<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    <li v-for="platform in platforms" :key="platform.id">
+                        <input
+                            type="checkbox"
+                            :name="'platform[' + platform.id + ']'"
+                        />
+                        <label :for="'platform[' + platform.id + ']'">{{
+                            platform.name
+                        }}</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-group col-12 col-md-3">
+                <button
+                    type="button"
+                    class="btn btn-default text-light bg-orange dropdown-toggle font-weight-bold mt-2"
+                    data-toggle="dropdown"
+                >
+                    {{ mode }}<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    <li v-for="mode in modes" :key="mode.id">
+                        <input
+                            type="checkbox"
+                            :name="'mode[' + mode.id + ']'"
+                        />
+                        <label :for="'mode[' + mode.id + ']'">{{
+                            mode.name
+                        }}</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-group col-12 col-md-3">
+                <button
+                    type="button"
+                    class="btn btn-default text-light bg-orange dropdown-toggle font-weight-bold mt-2"
+                    data-toggle="dropdown"
+                >
+                    {{ developer }}<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    <li v-for="developer in developers" :key="developer.id">
+                        <input
+                            type="checkbox"
+                            :name="'developer[' + developer.id + ']'"
+                        />
+                        <label :for="'developer[' + developer.id + ']'">{{
+                            developer.name
+                        }}</label>
+                    </li>
                 </ul>
             </div>
         </div>
-            </div>
-            <div class="d-block col-12 col-md-4">
-                <label class="font-weight-bold blue mt-2" for="platforms">{{
-                    platform
-                }}</label>
-                <select name="platforms" class="custom-select">
-                    <option
-                        v-for="platform in platforms"
-                        :key="platform.id"
-                        :value="platform.id"
-                        >{{ platform.name }}</option
-                    >
-                </select>
-            </div>
-            <div class="d-block col-12 col-md-4">
-                <label class="font-weight-bold blue mt-2" for="modes">{{
-                    mode
-                }}</label>
-                <select name="modes" class="custom-select">
-                    <option
-                        v-for="mode in modes"
-                        :key="mode.id"
-                        :value="mode.id"
-                        >{{ mode.name }}</option
-                    >
-                </select>
-            </div>
-        </div>
+
         <div class="input-group md-form form-sm form-2 pl-0">
             <div class="d-block col-12">
                 <label class="font-weight-bold blue mt-2" for="synopsis">{{

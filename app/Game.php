@@ -38,6 +38,11 @@ class Game extends Model
         return $this->belongsToMany('App\Platform', 'game_platforms', 'games_id', 'platforms_id');
     }
 
+    public function modes()
+    {
+        return $this->belongsToMany('App\Mode', 'game_modes', 'games_id', 'modes_id');
+    }
+
     // Methods
     public static function getGames()
     {
@@ -45,6 +50,7 @@ class Game extends Model
             ->with('genres')
             ->with('developers')
             ->with('platforms')
+            ->with('modes')
             ->select('*')
             ->get();
 
@@ -64,6 +70,7 @@ class Game extends Model
             ->with('genres')
             ->with('developers')
             ->with('platforms')
+            ->with('modes')
             ->select('*')
             ->first();
         return $game;
@@ -71,10 +78,23 @@ class Game extends Model
 
     public static function updateGame(AdminGameRequest $request, $id)
     {
-        // dd($request->input('genre'));
+        Game::find($id)->genres()->detach();
+        Game::find($id)->modes()->detach();
+        Game::find($id)->developers()->detach();
+        Game::find($id)->platforms()->detach();
         foreach ($request->input('genre') as $key => $val) {
             Game::find($id)->genres()->attach($id, ['genres_id' => $key, 'games_id' => $id]);
         }
+        foreach ($request->input('mode') as $key => $val) {
+            Game::find($id)->modes()->attach($id, ['modes_id' => $key, 'games_id' => $id]);
+        }
+        foreach ($request->input('platform') as $key => $val) {
+            Game::find($id)->platforms()->attach($id, ['platforms_id' => $key, 'games_id' => $id]);
+        }
+        foreach ($request->input('developer') as $key => $val) {
+            Game::find($id)->developers()->attach($id, ['developers_id' => $key, 'games_id' => $id]);
+        }
+
 
 
         $updateGame =  Game::where('deleted_at', null)->where('id', $id)
