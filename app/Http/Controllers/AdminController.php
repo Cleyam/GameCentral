@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\AdminUserRequest;
+use App\Http\Requests\AdminGameRequest;
 use App\User;
 use App\Game;
 use App\Genre;
@@ -48,6 +49,14 @@ class AdminController extends Controller
         $platforms = Platform::getPlatforms();
         $developers = Developer::getDevelopers();
         return view('admin/game')->with('game', $game)->with('genres', $genres)->with('modes', $modes)->with('platforms', $platforms)->with('developers', $developers);
+    }
+
+    public function updateGame(AdminGameRequest $request, $id)
+    {
+        // dd($request->all());
+        Game::updateGame($request, $id);
+        $games = Game::getGames();
+        return redirect('admin/games')->with('games', $games);
     }
 
     // Customer Controllers

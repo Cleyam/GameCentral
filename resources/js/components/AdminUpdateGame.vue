@@ -47,14 +47,23 @@
                 <label class="font-weight-bold blue mt-2" for="genres">{{
                     genre
                 }}</label>
-                <select name="genres" class="custom-select">
+                <!-- <select name="genres" class="custom-select" multiple>
                     <option
                         v-for="genre in genres"
                         :key="genre.id"
                         :value="genre.id"
                         >{{ genre.name }}</option
                     >
-                </select>
+                </select> -->
+
+                <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+                <ul class="dropdown-menu scrollable-menu" role="menu"  >
+                    <li v-for="genre in genres"
+                        :key="genre.id"><input type="checkbox" :name="'genre['+genre.id+']'"><label :for="'genre['+genre.id+']'">{{ genre.name }}</label></li>
+                </ul>
+            </div>
+        </div>
             </div>
             <div class="d-block col-12 col-md-4">
                 <label class="font-weight-bold blue mt-2" for="platforms">{{

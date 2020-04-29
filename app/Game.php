@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
-use App\Genre;
+use App\Http\Requests\AdminGameRequest;
 
 class Game extends Model
 {
@@ -67,5 +67,25 @@ class Game extends Model
             ->select('*')
             ->first();
         return $game;
+    }
+
+    public static function updateGame(AdminGameRequest $request, $id)
+    {
+        // dd($request->input('genre'));
+        foreach ($request->input('genre') as $key => $val) {
+            Game::find($id)->genres()->attach($id, ['genres_id' => $key, 'games_id' => $id]);
+        }
+
+
+        $updateGame =  Game::where('deleted_at', null)->where('id', $id)
+            ->update([
+                'reference' => $request->input('reference'),
+                'dateRelease' => $request->input('dateRelease'),
+                'stock' => $request->input('stock'),
+                'synopsis' => $request->input('synopsis'),
+                // 'miniature' => $request->input('miniature')
+            ]);;
+
+        return $updateGame;
     }
 }
