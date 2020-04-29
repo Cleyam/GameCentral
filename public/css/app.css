@@ -10907,6 +10907,11 @@ a:hover {
   color: #f57c31;
 }
 
+.success {
+  background-color: #f57c31;
+  color: white;
+}
+
 .logout {
   position: absolute;
   top: 8px;
@@ -10915,5 +10920,11 @@ a:hover {
 
 .fs-25 {
   font-size: 25px;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 165px;
+  overflow-x: hidden;
 }
 

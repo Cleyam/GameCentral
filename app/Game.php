@@ -95,8 +95,6 @@ class Game extends Model
             Game::find($id)->developers()->attach($id, ['developers_id' => $key, 'games_id' => $id]);
         }
 
-
-
         $updateGame =  Game::where('deleted_at', null)->where('id', $id)
             ->update([
                 'reference' => $request->input('reference'),

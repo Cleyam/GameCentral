@@ -53,7 +53,6 @@ class AdminController extends Controller
 
     public function updateGame(AdminGameRequest $request, $id)
     {
-        // dd($request->all());
         Game::updateGame($request, $id);
         $games = Game::getGames();
         return redirect('admin/games')->with('games', $games);
