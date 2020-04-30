@@ -24,7 +24,7 @@ class AdminGameRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'miniature' => 'required|file',
         ];
     }
 }

@@ -101,6 +101,7 @@ class Game extends Model
                 'dateRelease' => $request->input('dateRelease'),
                 'stock' => $request->input('stock'),
                 'synopsis' => $request->input('synopsis'),
+                'miniature' => "game$id.png"
                 // 'miniature' => $request->input('miniature')
             ]);;
 

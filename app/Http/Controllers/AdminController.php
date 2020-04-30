@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AdminUserRequest;
 use App\Http\Requests\AdminGameRequest;
 use App\User;
@@ -12,6 +12,7 @@ use App\Genre;
 use App\Mode;
 use App\Platform;
 use App\Developer;
+
 
 
 class AdminController extends Controller
@@ -53,6 +54,8 @@ class AdminController extends Controller
 
     public function updateGame(AdminGameRequest $request, $id)
     {
+        Storage::delete("game$id.png");
+        $request->file('miniature')->storeAs('miniatures', "game$id.png");
         Game::updateGame($request, $id);
         $games = Game::getGames();
         return redirect('admin/games')->with('games', $games);

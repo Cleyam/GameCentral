@@ -3,6 +3,7 @@
         :id="'update-id-' + game.id"
         :action="'update' + game.id"
         method="POST"
+        enctype="multipart/form-data"
     >
         <input type="hidden" name="_token" :value="csrf" />
         <input name="id" type="hidden" :value="game.id" />
@@ -119,7 +120,24 @@
                     :value="game.synopsis"
                 ></textarea>
             </div>
-
+        </div>
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <div class="d-block col-6 mt-2">
+                <label class="font-weight-bold blue mt-2" for="modes">
+                    Image</label
+                >
+                <div class="custom-file" name="miniatures">
+                    <input
+                        type="file"
+                        class="custom-file-input"
+                        name="miniature"
+                    />
+                    <label class="custom-file-label" for="Miniature"
+                        >Choose file</label
+                    >
+                </div>
+            </div>
+            <div class="col-6 mt-2">Preview</div>
             <button
                 type="submit"
                 class="btn bg-orange text-light mx-auto font-weight-bold mt-4 shadow-sm"
@@ -127,7 +145,6 @@
                 {{ update }}
             </button>
         </div>
-
         <hr />
     </form>
 </template>
