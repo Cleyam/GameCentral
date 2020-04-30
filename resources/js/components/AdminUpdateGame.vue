@@ -48,15 +48,14 @@
                     genre
                 }}</label>
                 <ul class="scrollable-menu list-group" name="genres">
-                    <label v-for="genre in genres" :key="genre.id">
-                        <li class="list-group-item">
-                            <input
-                                type="checkbox"
-                                :name="'genre[' + genre.id + ']'"
-                            />
-                            {{ genre.name }}
-                        </li>
-                    </label>
+                    <admin-update-game-checklist
+                        name="genre"
+                        :data="genre"
+                        :isActive="isGenre(genre)"
+                        v-for="genre in genres"
+                        :key="genre.id"
+                    >
+                    </admin-update-game-checklist>
                 </ul>
             </div>
 
@@ -65,15 +64,14 @@
                     mode
                 }}</label>
                 <ul class="scrollable-menu list-group" name="modes">
-                    <label v-for="mode in modes" :key="mode.id">
-                        <li class="list-group-item">
-                            <input
-                                type="checkbox"
-                                :name="'mode[' + mode.id + ']'"
-                            />
-                            {{ mode.name }}
-                        </li>
-                    </label>
+                    <admin-update-game-checklist
+                        name="mode"
+                        :data="mode"
+                        :isActive="isMode(mode)"
+                        v-for="mode in modes"
+                        :key="mode.id"
+                    >
+                    </admin-update-game-checklist>
                 </ul>
             </div>
             <div class="d-block col-12 col-md-3">
@@ -81,15 +79,14 @@
                     platform
                 }}</label>
                 <ul class="scrollable-menu list-group" name="platforms">
-                    <label v-for="platform in platforms" :key="platform.id">
-                        <li class="list-group-item">
-                            <input
-                                type="checkbox"
-                                :name="'platform[' + platform.id + ']'"
-                            />
-                            {{ platform.name }}
-                        </li>
-                    </label>
+                    <admin-update-game-checklist
+                        name="platform"
+                        :data="platform"
+                        :isActive="isPlatform(platform)"
+                        v-for="platform in platforms"
+                        :key="platform.id"
+                    >
+                    </admin-update-game-checklist>
                 </ul>
             </div>
             <div class="d-block col-12 col-md-3">
@@ -97,13 +94,14 @@
                     developer
                 }}</label>
                 <ul class="scrollable-menu list-group" name="developers">
-                    <admin-update-game-li
+                    <admin-update-game-checklist
+                        name="developer"
                         :data="developer"
-                        :isActive="isActive(developer)"
+                        :isActive="isDeveloper(developer)"
                         v-for="developer in developers"
                         :key="developer.id"
                     >
-                    </admin-update-game-li>
+                    </admin-update-game-checklist>
                 </ul>
             </div>
         </div>
@@ -159,10 +157,37 @@ export default {
         };
     },
     methods: {
-        isActive: function(devname) {
+        isDeveloper: function(listinfo) {
             let result = false;
-            this.game.developers.forEach(devs => {
-                if (devs.name == devname.name) {
+            this.game.developers.forEach(gameinfo => {
+                if (gameinfo.name == listinfo.name) {
+                    result = true;
+                }
+            });
+            return result;
+        },
+        isMode: function(listinfo) {
+            let result = false;
+            this.game.modes.forEach(gameinfo => {
+                if (gameinfo.name == listinfo.name) {
+                    result = true;
+                }
+            });
+            return result;
+        },
+        isPlatform: function(listinfo) {
+            let result = false;
+            this.game.platforms.forEach(gameinfo => {
+                if (gameinfo.name == listinfo.name) {
+                    result = true;
+                }
+            });
+            return result;
+        },
+        isGenre: function(listinfo) {
+            let result = false;
+            this.game.genres.forEach(gameinfo => {
+                if (gameinfo.name == listinfo.name) {
                     result = true;
                 }
             });

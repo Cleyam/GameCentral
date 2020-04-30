@@ -1,10 +1,11 @@
 <template>
     <label>
-        <li class="list-group-item" :class="{ success: checked }">
+        <li class="list-group-item unselectable" :class="{ success: checked }">
             <input
                 type="checkbox"
-                :name="data + '[' + data.id + ']'"
+                :name="name + '[' + data.id + ']'"
                 v-model="checked"
+                class="hidden"
             />
             {{ data.name }}
         </li>
@@ -12,7 +13,7 @@
 </template>
 <script>
 export default {
-    props: ["data", "isActive"],
+    props: ["data", "name", "isActive"],
     data: function() {
         return {
             checked: this.isActive

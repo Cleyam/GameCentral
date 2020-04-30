@@ -10912,6 +10912,18 @@ a:hover {
   color: white;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .logout {
   position: absolute;
   top: 8px;
