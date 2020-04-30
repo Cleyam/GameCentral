@@ -9,6 +9,7 @@ Vue.component('admin-navbar', require('./components/AdminNavbar.vue').default);
 // Game components
 Vue.component('admin-table-games', require('./components/AdminTableGames.vue').default);
 Vue.component('admin-update-game', require('./components/AdminUpdateGame.vue').default);
+Vue.component('admin-update-game-li', require('./components/AdminUpdateGameLi.vue').default);
 // Employee components
 Vue.component('admin-table-employees', require('./components/AdminTableEmployees.vue').default);
 Vue.component('admin-update-employee', require('./components/AdminUpdateEmployee.vue').default);

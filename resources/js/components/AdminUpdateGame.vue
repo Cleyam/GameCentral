@@ -97,15 +97,13 @@
                     developer
                 }}</label>
                 <ul class="scrollable-menu list-group" name="developers">
-                    <label v-for="developer in developers" :key="developer.id">
-                        <li class="list-group-item">
-                            <input
-                                type="checkbox"
-                                :name="'developer[' + developer.id + ']'"
-                            />
-                            {{ developer.name }}
-                        </li>
-                    </label>
+                    <admin-update-game-li
+                        :data="developer"
+                        :isActive="isActive(developer)"
+                        v-for="developer in developers"
+                        :key="developer.id"
+                    >
+                    </admin-update-game-li>
                 </ul>
             </div>
         </div>
@@ -156,9 +154,21 @@ export default {
     ],
     data: function() {
         return {
+            checked: false,
             csrf: document.head.querySelector('meta[name="csrf-token"]').content
         };
     },
-    methods: {}
+    methods: {
+        isActive: function(devname) {
+            let result = false;
+            this.game.developers.forEach(devs => {
+                if (devs.name == devname.name) {
+                    result = true;
+                }
+            });
+            return result;
+        }
+    },
+    computed: {}
 };
 </script>
