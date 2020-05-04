@@ -10,9 +10,9 @@
         <hr />
         <div class="input-group md-form form-sm form-2 pl-0">
             <div class="d-block col-12 col-md-8">
-                <label class="font-weight-bold blue mt-2" for="reference">{{
-                    name
-                }}</label>
+                <label class="font-weight-bold blue mt-2" for="reference">
+                    {{ name }}
+                </label>
                 <input
                     name="reference"
                     class="form-control my-0 py-1 amber-border"
@@ -21,9 +21,9 @@
                 />
             </div>
             <div class="d-block col-12 col-md-3">
-                <label class="font-weight-bold blue mt-2" for="dateRelease">{{
-                    release
-                }}</label>
+                <label class="font-weight-bold blue mt-2" for="dateRelease">
+                    {{ release }}
+                </label>
                 <input
                     name="dateRelease"
                     class="form-control my-0 py-1 amber-border"
@@ -32,9 +32,9 @@
                 />
             </div>
             <div class="d-block col-12 col-md-1">
-                <label class="font-weight-bold blue mt-2" for="stock">{{
-                    stock
-                }}</label>
+                <label class="font-weight-bold blue mt-2" for="stock">
+                    {{ stock }}
+                </label>
                 <input
                     name="stock"
                     class="form-control my-0 py-1 amber-border"
@@ -44,10 +44,10 @@
             </div>
         </div>
         <div class="input-group md-form form-sm form-2 pl-0 mt-2">
-            <div class="d-block col-12 col-md-3">
-                <label class="font-weight-bold blue mt-2" for="genres">{{
-                    genre
-                }}</label>
+            <div class="d-block col-12 col-xl-3 col-md-6">
+                <label class="font-weight-bold blue mt-2" for="genres">
+                    {{ genre }}
+                </label>
                 <ul class="scrollable-menu list-group" name="genres">
                     <admin-update-game-checklist
                         name="genre"
@@ -60,10 +60,10 @@
                 </ul>
             </div>
 
-            <div class="d-block col-12 col-md-3">
-                <label class="font-weight-bold blue mt-2" for="modes">{{
-                    mode
-                }}</label>
+            <div class="d-block col-12 col-xl-3 col-md-6">
+                <label class="font-weight-bold blue mt-2" for="modes">
+                    {{ mode }}
+                </label>
                 <ul class="scrollable-menu list-group" name="modes">
                     <admin-update-game-checklist
                         name="mode"
@@ -75,10 +75,10 @@
                     </admin-update-game-checklist>
                 </ul>
             </div>
-            <div class="d-block col-12 col-md-3">
-                <label class="font-weight-bold blue mt-2" for="platforms">{{
-                    platform
-                }}</label>
+            <div class="d-block col-12 col-xl-3 col-md-6">
+                <label class="font-weight-bold blue mt-2" for="platforms">
+                    {{ platform }}
+                </label>
                 <ul class="scrollable-menu list-group" name="platforms">
                     <admin-update-game-checklist
                         name="platform"
@@ -90,10 +90,10 @@
                     </admin-update-game-checklist>
                 </ul>
             </div>
-            <div class="d-block col-12 col-md-3">
-                <label class="font-weight-bold blue mt-2" for="developers">{{
-                    developer
-                }}</label>
+            <div class="d-block col-12 col-xl-3 col-md-6">
+                <label class="font-weight-bold blue mt-2" for="developers">
+                    {{ developer }}
+                </label>
                 <ul class="scrollable-menu list-group" name="developers">
                     <admin-update-game-checklist
                         name="developer"
@@ -109,9 +109,9 @@
 
         <div class="input-group md-form form-sm form-2 pl-0">
             <div class="d-block col-12">
-                <label class="font-weight-bold blue mt-2" for="synopsis">{{
-                    synopsis
-                }}</label>
+                <label class="font-weight-bold blue mt-2" for="synopsis">
+                    {{ synopsis }}
+                </label>
                 <textarea
                     name="synopsis"
                     class="form-control my-0 py-1 amber-border"
@@ -122,22 +122,36 @@
             </div>
         </div>
         <div class="input-group md-form form-sm form-2 pl-0">
-            <div class="d-block col-6 mt-2">
-                <label class="font-weight-bold blue mt-2" for="modes">
-                    Image</label
-                >
+            <div class="d-block col-12 col-md-6 mt-2">
+                <label class="font-weight-bold blue mt-2" for="miniatures">
+                    {{ imageChange }}
+                </label>
                 <div class="custom-file" name="miniatures">
                     <input
                         type="file"
                         class="custom-file-input"
                         name="miniature"
                     />
-                    <label class="custom-file-label" for="Miniature">{{
-                        choose
-                    }}</label>
+                    <label class="custom-file-label" for="Miniature">
+                        {{ choose }}
+                    </label>
                 </div>
             </div>
-            <div class="col-6 mt-2">Preview</div>
+            <div class="d-block col-12 col-md-6 mt-2">
+                <label
+                    class="font-weight-bold blue mt-2 px-0 col-12"
+                    for="preview"
+                >
+                    {{ actualImage }}
+                </label>
+                <img
+                    name="preview"
+                    class=" img-fluid preview"
+                    :src="miniature"
+                    alt="Image Preview"
+                    title="Image Preview"
+                />
+            </div>
             <button
                 type="submit"
                 class="btn bg-orange text-light mx-auto font-weight-bold mt-4 shadow-sm"
@@ -166,7 +180,10 @@ export default {
         "developers",
         "developer",
         "update",
-        "choose"
+        "choose",
+        "miniature",
+        "imageChange",
+        "actualImage"
     ],
     data: function() {
         return {

@@ -23,7 +23,9 @@ return [
     'synopsis' => 'Synopsis',
     'mode' => 'Mode(s)',
     'platform' => "Platform(s)",
-    "choose" => "Choose File"
+    "choose" => "Choose File",
+    "imageChange" => "Change image",
+    "actualImage" => "Actual image"
 
 
 ];

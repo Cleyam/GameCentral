@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+GameCentral - @lang('admin.employees')
+@endsection
 @section('content')
 <admin-navbar dashboard="@lang('admin.dashboard')" dashboard-route="{{ url('/admin') }}" games="@lang('admin.games')"
     game-route="{{ url('admin/games') }}" customers="@lang('admin.customers')"
