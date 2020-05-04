@@ -22,6 +22,7 @@ return [
     'stock' => 'Stock',
     'synopsis' => 'Synopsis',
     'mode' => 'Mode(s)',
-    'platform' => 'Plateforme(s)'
+    'platform' => 'Plateforme(s)',
+    "choose" => "Choisir un fichier"
 
 ];

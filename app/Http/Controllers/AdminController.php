@@ -54,8 +54,10 @@ class AdminController extends Controller
 
     public function updateGame(AdminGameRequest $request, $id)
     {
-        Storage::delete("game$id.png");
-        $request->file('miniature')->storeAs('miniatures', "game$id.png");
+        if ($request->hasFile('miniature') && $request('miniature')->isValid()) {
+            Storage::delete("game$id.png");
+            $request->file('miniature')->storeAs('miniatures', "game$id.png");
+        }
         Game::updateGame($request, $id);
         $games = Game::getGames();
         return redirect('admin/games')->with('games', $games);

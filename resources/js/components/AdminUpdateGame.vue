@@ -132,9 +132,9 @@
                         class="custom-file-input"
                         name="miniature"
                     />
-                    <label class="custom-file-label" for="Miniature"
-                        >Choose file</label
-                    >
+                    <label class="custom-file-label" for="Miniature">{{
+                        choose
+                    }}</label>
                 </div>
             </div>
             <div class="col-6 mt-2">Preview</div>
@@ -165,7 +165,8 @@ export default {
         "platform",
         "developers",
         "developer",
-        "update"
+        "update",
+        "choose"
     ],
     data: function() {
         return {

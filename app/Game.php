@@ -102,7 +102,6 @@ class Game extends Model
                 'stock' => $request->input('stock'),
                 'synopsis' => $request->input('synopsis'),
                 'miniature' => "game$id.png"
-                // 'miniature' => $request->input('miniature')
             ]);;
 
         return $updateGame;

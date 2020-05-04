@@ -12,6 +12,7 @@
     :developers="{{ $developers }}" name="@lang('admin.name')" developer="@lang('admin.developer')"
     genre="@lang('admin.genre')" platform="@lang('admin.platform')" mode="@lang('admin.mode')"
     release="@lang('admin.release')" stock="@lang('admin.stock')" synopsis="@lang('admin.synopsis')"
-    image="@lang('admin.image')" update="@lang('admin.update')">
+    image="@lang('admin.image')" update="@lang('admin.update')" choose="@lang('admin.choose')">
 </admin-update-game>
+<img src="{{ asset('/miniatures/'.$game->miniature) }}" alt="" title="">
 @endsection
