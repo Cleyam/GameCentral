@@ -38,8 +38,9 @@ class AdminController extends Controller
     public function deleteGame($id)
     {
         Game::deleteGame($id);
+        Storage::delete("game$id.png");
         $games = Game::getGames();
-        return view('admin/games')->with('games', $games);
+        return redirect('admin/games')->with('games', $games);
     }
 
     public function game($id)
@@ -59,6 +60,26 @@ class AdminController extends Controller
             $request->file('miniature')->storeAs('miniatures', "game$id.png");
         }
         Game::updateGame($request, $id);
+        $games = Game::getGames();
+        return redirect('admin/games')->with('games', $games);
+    }
+
+    public function newGame()
+    {
+        $genres = Genre::getGenres();
+        $modes = Mode::getModes();
+        $platforms = Platform::getPlatforms();
+        $developers = Developer::getDevelopers();
+        return view('admin/gameNew')->with('genres', $genres)->with('modes', $modes)->with('platforms', $platforms)->with('developers', $developers);
+    }
+
+    public function addGame(AdminGameRequest $request)
+    {
+        $newGame = Game::addGame($request);
+        if ($request->hasFile('miniature')) {
+            Storage::delete("game$newGame->id.png");
+            $request->file('miniature')->storeAs('miniatures', "game$newGame->id.png");
+        }
         $games = Game::getGames();
         return redirect('admin/games')->with('games', $games);
     }

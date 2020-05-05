@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SearchRequest;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function games(SearchRequest $request)
+    {
+        return view('searchgame');
+    }
+
+    public function customers(SearchRequest $request)
+    {
+        return view('searchcustomer');
     }
 }

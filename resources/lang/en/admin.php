@@ -25,7 +25,8 @@ return [
     'platform' => "Platform(s)",
     "choose" => "Choose File",
     "imageChange" => "Change image",
-    "actualImage" => "Actual image"
+    "actualImage" => "Actual image",
+    "image" => "Game Image"
 
 
 ];

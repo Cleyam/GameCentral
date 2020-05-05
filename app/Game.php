@@ -102,8 +102,36 @@ class Game extends Model
                 'stock' => $request->input('stock'),
                 'synopsis' => $request->input('synopsis'),
                 'miniature' => "game$id.png"
-            ]);;
+            ]);
 
         return $updateGame;
+    }
+
+    public static function addGame(AdminGameRequest $request)
+    {
+        $addGame = Game::create([
+            'reference' => $request->input('reference'),
+            'dateRelease' => $request->input('dateRelease'),
+            'stock' => $request->input('stock'),
+            'synopsis' => $request->input('synopsis'),
+            'miniature' => "none"
+        ]);
+        Game::where('deleted_at', null)->where('id', $addGame->id)
+            ->update([
+                'miniature' => "game$addGame->id.png"
+            ]);
+        foreach ($request->input('genre') as $key => $val) {
+            Game::find($addGame->id)->genres()->attach($addGame->id, ['genres_id' => $key, 'games_id' => $addGame->id]);
+        }
+        foreach ($request->input('mode') as $key => $val) {
+            Game::find($addGame->id)->modes()->attach($addGame->id, ['modes_id' => $key, 'games_id' => $addGame->id]);
+        }
+        foreach ($request->input('platform') as $key => $val) {
+            Game::find($addGame->id)->platforms()->attach($addGame->id, ['platforms_id' => $key, 'games_id' => $addGame->id]);
+        }
+        foreach ($request->input('developer') as $key => $val) {
+            Game::find($addGame->id)->developers()->attach($addGame->id, ['developers_id' => $key, 'games_id' => $addGame->id]);
+        }
+        return $addGame;
     }
 }
