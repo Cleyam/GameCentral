@@ -27,13 +27,10 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function games(SearchRequest $request)
+    public function search(SearchRequest $request)
     {
-        return view('searchgame');
-    }
-
-    public function customers(SearchRequest $request)
-    {
-        return view('searchcustomer');
+        $result = '';
+        var_dump($request);
+        return view('home')->with('result', $result);
     }
 }

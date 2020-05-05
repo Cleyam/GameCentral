@@ -1,9 +1,9 @@
 <template>
     <div id="search-bloc" class="container">
         <!-- Search selection -->
-        <div class="d-flex justify-content-center pb-5">
+        <div class="d-flex justify-content-center pb-3 mt-1">
             <label
-                class="btn bg-orange text-light font-weight-bold mt-4 shadow mx-2 px-2 py-2"
+                class="btn bg-orange text-light font-weight-bold shadow mx-2 px-2 py-2"
             >
                 <input
                     class="d-none"
@@ -14,7 +14,7 @@
                 <span>{{ langGame }}</span>
             </label>
             <label
-                class="btn bg-orange text-light font-weight-bold mt-4 shadow mx-2 px-2 py-2"
+                class="btn bg-orange text-light font-weight-bold shadow mx-2 px-2 py-2"
             >
                 <input
                     class="d-none"
@@ -27,15 +27,16 @@
         </div>
 
         <!-- Search Game Form -->
-        <form action="searchgame" method="POST" v-if="showGame">
+        <form action="search" method="POST" v-if="showGame">
             <input type="hidden" name="_token" :value="csrf" />
+            <input type="hidden" name="type" value="game" />
             <div class="d-block input-group md-form form-sm form-2 pl-0">
-                <label class="font-weight-bold blue mt-2" for="game">
+                <label class="font-weight-bold blue" for="search">
                     {{ langGame }}
                 </label>
                 <div class="d-flex">
                     <input
-                        name="game"
+                        name="search"
                         class="form-control my-0 py-1 amber-border"
                         type="text"
                         :placeholder="langGame"
@@ -55,15 +56,16 @@
         </form>
 
         <!-- Search Customer Form -->
-        <form action="searchcustomer" method="POST" v-if="showCustomer">
+        <form action="search" method="POST" v-if="showCustomer">
             <input type="hidden" name="_token" :value="csrf" />
+            <input type="hidden" name="type" value="customer" />
             <div class="d-block input-group md-form form-sm form-2 pl-0">
-                <label class="font-weight-bold blue mt-2" for="customer">
+                <label class="font-weight-bold blue" for="search">
                     {{ langCustomer }}
                 </label>
                 <div class="d-flex">
                     <input
-                        name="customer"
+                        name="search"
                         class="form-control my-0 py-1 amber-border"
                         type="text"
                         :placeholder="langCustomer"

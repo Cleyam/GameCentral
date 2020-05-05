@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'searchGame' => 'Search for Game',
-    'searchCustomer' => 'Search for Customer'
+    'search' => 'Search',
+    'searchGame' => 'Search by Game',
+    'searchCustomer' => 'Search by Customer'
 
 ];
