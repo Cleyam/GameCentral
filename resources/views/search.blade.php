@@ -11,6 +11,9 @@ GameCentral
     genre="@lang('admin.genre')" release="@lang('admin.release')" stock="@lang('admin.stock')" see="@lang('admin.see')"
     delete-game="@lang('admin.delete')"></search-bar-result-games>
 @elseif($type == 'customer' && !empty($result))
+<search-bar-result-customers :data="{{ $result }}" name="@lang('admin.name')" email="@lang('admin.email')"
+    phone="@lang('admin.phone')" created="@lang('admin.created')" see="@lang('admin.see')">
+</search-bar-result-customers>
 @endif
 @endif
 @endsection
