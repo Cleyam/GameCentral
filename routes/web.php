@@ -20,8 +20,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('search', 'HomeController@search');
 Route::post('search', 'HomeController@search');
-
-
+Route::get('game/{id}', 'HomeController@game');
+Route::get('customer/{id}', 'HomeController@customer');
 
 
 // ADMIN ROUTES
@@ -30,7 +30,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function (
     // Game routes
     Route::get('admin/games', 'AdminController@games')->name('games');
     Route::post('admin/games/delete{id}', 'AdminController@deleteGame');
-    Route::get('admin/game/{id}', 'AdminController@Game');
+    Route::get('admin/game/{id}', 'AdminController@game');
     Route::post('admin/game/update{id}', 'AdminController@updateGame');
     Route::get('admin/games/new', 'AdminController@newGame');
     Route::post('admin/games/new', 'AdminController@addGame');

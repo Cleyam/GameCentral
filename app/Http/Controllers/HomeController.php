@@ -48,4 +48,20 @@ class HomeController extends Controller
         }
         return view('search')->with('result', $result)->with('type', $type);
     }
+
+    public function game($id)
+    {
+        $game = Game::getGame($id);
+        $genres = Genre::getGenres();
+        $modes = Mode::getModes();
+        $platforms = Platform::getPlatforms();
+        $developers = Developer::getDevelopers();
+        return view('resultGame')->with('game', $game)->with('genres', $genres)->with('modes', $modes)->with('platforms', $platforms)->with('developers', $developers);
+    }
+
+    public function customer($id)
+    {
+        $customer = User::getCustomer($id);
+        return view('resultCustomer')->with('customer', $customer);
+    }
 }

@@ -6,8 +6,8 @@
                     <img
                         class="px-3 img-fluid"
                         src="https://i.imgur.com/UTFJMhw.png"
-                        alt="GameCentral logo"
-                        title="GameCentral logo"
+                        alt="Accueil"
+                        title="Accueil"
                     />
                 </a>
             </div>
