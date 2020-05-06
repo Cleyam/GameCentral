@@ -5,6 +5,10 @@ window.Vue = require('vue');
 Vue.component('content-bloc', require('./components/ContentBloc.vue').default);
 Vue.component('logout-button', require('./components/LogoutButton.vue').default);
 Vue.component('search-bar', require('./components/SearchBar.vue').default);
+Vue.component('search-bar-result-games', require('./components/SearchBarResultGames.vue').default);
+Vue.component('search-bar-result-customers', require('./components/SearchBarResultCustomers.vue').default);
+
+
 Vue.component('admin-navbar', require('./components/admin/AdminNavbar.vue').default);
 // Game components
 Vue.component('admin-table-games', require('./components/admin/AdminTableGames.vue').default);

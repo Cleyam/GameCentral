@@ -31,9 +31,6 @@
             <input type="hidden" name="_token" :value="csrf" />
             <input type="hidden" name="type" value="game" />
             <div class="d-block input-group md-form form-sm form-2 pl-0">
-                <label class="font-weight-bold blue" for="search">
-                    {{ langGame }}
-                </label>
                 <div class="d-flex">
                     <input
                         name="search"
@@ -60,9 +57,6 @@
             <input type="hidden" name="_token" :value="csrf" />
             <input type="hidden" name="type" value="customer" />
             <div class="d-block input-group md-form form-sm form-2 pl-0">
-                <label class="font-weight-bold blue" for="search">
-                    {{ langCustomer }}
-                </label>
                 <div class="d-flex">
                     <input
                         name="search"

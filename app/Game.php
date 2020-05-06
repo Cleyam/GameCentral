@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\AdminGameRequest;
+use App\Http\Requests\SearchRequest;
 
 class Game extends Model
 {
@@ -59,7 +60,9 @@ class Game extends Model
 
     public static function deleteGame($id)
     {
-        $deleteGame = Game::where('deleted_at', null)->where('id', $id)->delete();
+        $deleteGame = Game::where('deleted_at', null)
+            ->where('id', $id)
+            ->delete();
         return $deleteGame;
     }
 
@@ -83,16 +86,24 @@ class Game extends Model
         Game::find($id)->developers()->detach();
         Game::find($id)->platforms()->detach();
         foreach ($request->input('genre') as $key => $val) {
-            Game::find($id)->genres()->attach($id, ['genres_id' => $key, 'games_id' => $id]);
+            Game::find($id)
+                ->genres()
+                ->attach($id, ['genres_id' => $key, 'games_id' => $id]);
         }
         foreach ($request->input('mode') as $key => $val) {
-            Game::find($id)->modes()->attach($id, ['modes_id' => $key, 'games_id' => $id]);
+            Game::find($id)
+                ->modes()
+                ->attach($id, ['modes_id' => $key, 'games_id' => $id]);
         }
         foreach ($request->input('platform') as $key => $val) {
-            Game::find($id)->platforms()->attach($id, ['platforms_id' => $key, 'games_id' => $id]);
+            Game::find($id)
+                ->platforms()
+                ->attach($id, ['platforms_id' => $key, 'games_id' => $id]);
         }
         foreach ($request->input('developer') as $key => $val) {
-            Game::find($id)->developers()->attach($id, ['developers_id' => $key, 'games_id' => $id]);
+            Game::find($id)
+                ->developers()
+                ->attach($id, ['developers_id' => $key, 'games_id' => $id]);
         }
 
         $updateGame =  Game::where('deleted_at', null)->where('id', $id)
@@ -121,17 +132,39 @@ class Game extends Model
                 'miniature' => "game$addGame->id.png"
             ]);
         foreach ($request->input('genre') as $key => $val) {
-            Game::find($addGame->id)->genres()->attach($addGame->id, ['genres_id' => $key, 'games_id' => $addGame->id]);
+            Game::find($addGame->id)
+                ->genres()
+                ->attach($addGame->id, ['genres_id' => $key, 'games_id' => $addGame->id]);
         }
         foreach ($request->input('mode') as $key => $val) {
-            Game::find($addGame->id)->modes()->attach($addGame->id, ['modes_id' => $key, 'games_id' => $addGame->id]);
+            Game::find($addGame->id)
+                ->modes()
+                ->attach($addGame->id, ['modes_id' => $key, 'games_id' => $addGame->id]);
         }
         foreach ($request->input('platform') as $key => $val) {
-            Game::find($addGame->id)->platforms()->attach($addGame->id, ['platforms_id' => $key, 'games_id' => $addGame->id]);
+            Game::find($addGame->id)
+                ->platforms()
+                ->attach($addGame->id, ['platforms_id' => $key, 'games_id' => $addGame->id]);
         }
         foreach ($request->input('developer') as $key => $val) {
-            Game::find($addGame->id)->developers()->attach($addGame->id, ['developers_id' => $key, 'games_id' => $addGame->id]);
+            Game::find($addGame->id)
+                ->developers()
+                ->attach($addGame->id, ['developers_id' => $key, 'games_id' => $addGame->id]);
         }
         return $addGame;
+    }
+
+    public static function searchGame(SearchRequest $request)
+    {
+        $result = Game::where('reference', 'LIKE', '%' . $request->input('search') . '%')
+            ->where('deleted_at', null)
+            ->with('genres')
+            ->with('developers')
+            ->with('platforms')
+            ->with('modes')
+            ->select('*')->get();
+        if (count($result) > 0) {
+            return $result;
+        }
     }
 }

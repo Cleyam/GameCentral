@@ -18,6 +18,7 @@ Auth::routes();
 
 // APP ROUTES
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('search', 'HomeController@search');
 Route::post('search', 'HomeController@search');
 
 
