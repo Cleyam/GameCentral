@@ -44,6 +44,11 @@ class Game extends Model
         return $this->belongsToMany('App\Mode', 'game_modes', 'games_id', 'modes_id');
     }
 
+    public function rentals()
+    {
+        return $this->belongsToMany('App\Rental', 'rentals', 'games_id', 'users_id');
+    }
+
     // Methods
     public static function getGames()
     {
@@ -166,5 +171,12 @@ class Game extends Model
         if (count($result) > 0) {
             return $result;
         }
+    }
+
+    public static function rent($idGame, $idCustomer)
+    {
+        Game::find($idGame)
+            ->rentals()
+            ->attach($idGame, ['modes_id' => $idCustomer, 'games_id' => $idGame]);
     }
 }

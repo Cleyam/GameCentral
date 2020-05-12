@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Input;
+
 use App\Http\Requests\SearchRequest;
+use App\Http\Requests\RentRequest;
 use App\User;
 use App\Game;
 use App\Genre;
 use App\Mode;
 use App\Platform;
 use App\Developer;
+use App\Rental;
 
 class HomeController extends Controller
 {
@@ -57,6 +62,33 @@ class HomeController extends Controller
         $platforms = Platform::getPlatforms();
         $developers = Developer::getDevelopers();
         return view('resultGame')->with('game', $game)->with('genres', $genres)->with('modes', $modes)->with('platforms', $platforms)->with('developers', $developers);
+    }
+
+    public function rentalform($idGame)
+    {
+        $game = Game::getGame($idGame);
+        $genres = Genre::getGenres();
+        $modes = Mode::getModes();
+        $platforms = Platform::getPlatforms();
+        $developers = Developer::getDevelopers();
+        $data = User::getCustomers();
+        foreach ($data as $customer) {
+            $customers[] = $customer['name'];
+        }
+        return view('rental')->with('game', $game)->with('customers', $customers);
+    }
+
+    public function apiCustomers()
+    {
+        $query = request('query');
+        $customers = User::sortCustomers($query);
+        return response()->json($customers);
+    }
+
+    public function rent(RentRequest $request)
+    {
+        Rental::rentGame($request);
+        return view('rentComplete');
     }
 
     public function customer($id)

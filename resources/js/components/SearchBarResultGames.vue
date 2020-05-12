@@ -44,7 +44,6 @@ export default {
         return {
             csrf: document.head.querySelector('meta[name="csrf-token"]').content
         };
-    },
-    mounted() {}
+    }
 };
 </script>

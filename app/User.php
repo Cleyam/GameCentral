@@ -111,6 +111,15 @@ class User extends Authenticatable
         return $customers;
     }
 
+    public static function sortCustomers($query)
+    {
+        $customers = User::where('auth', 'customer')
+            ->where('deleted_at', null)
+            ->where('name', 'like', '%' . $query . '%')
+            ->get();
+        return $customers;
+    }
+
     public static function getCustomer($id)
     {
         $customer = User::where('auth', 'customer')

@@ -177,6 +177,27 @@
                         ></textarea>
                     </div>
                 </div>
+                <div class="text-center mt-2">
+                    <a
+                        :href="'rental/' + game.id"
+                        class=""
+                        v-if="game.stock > 0"
+                    >
+                        <button
+                            class="btn bg-orange text-light mx-auto font-weight-bold mb-4 shadow-sm"
+                        >
+                            Louer
+                        </button>
+                    </a>
+                    <a href="" class="" v-if="game.stock == 0">
+                        <button
+                            class="btn bg-orange text-light mx-auto font-weight-bold mb-4 shadow-sm"
+                            disabled
+                        >
+                            Indisponible
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 

@@ -9,6 +9,7 @@ Vue.component('search-bar-result-games', require('./components/SearchBarResultGa
 Vue.component('search-bar-result-customers', require('./components/SearchBarResultCustomers.vue').default);
 Vue.component('detail-customer', require('./components/DetailCustomer.vue').default);
 Vue.component('detail-game', require('./components/DetailGame.vue').default);
+Vue.component('rental-form', require('./components/RentalForm.vue').default);
 
 
 Vue.component('admin-navbar', require('./components/admin/AdminNavbar.vue').default);
@@ -26,6 +27,9 @@ Vue.component('admin-table-customers', require('./components/admin/AdminTableCus
 Vue.component('admin-update-customer', require('./components/admin/AdminUpdateCustomer.vue').default);
 Vue.component('admin-add-customer', require('./components/admin/AdminAddCustomer.vue').default);
 
+
+Vue.component('search-bar-result-games',
+    require('./components/SearchBarResultGames.vue').default);
 const app = new Vue({
     el: '#app',
     data() {

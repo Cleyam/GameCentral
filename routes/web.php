@@ -21,6 +21,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('search', 'HomeController@search');
 Route::post('search', 'HomeController@search');
 Route::get('game/{id}', 'HomeController@game');
+Route::get('game/rental/{id}', 'HomeController@rentalform');
+Route::post('game/rental/{id}', 'HomeController@rent');
+Route::get('/api/search', 'HomeController@apiCustomers');
 Route::get('customer/{id}', 'HomeController@customer');
 
 
