@@ -8,6 +8,7 @@ Vue.component('search-bar', require('./components/SearchBar.vue').default);
 Vue.component('search-bar-result-games', require('./components/SearchBarResultGames.vue').default);
 Vue.component('search-bar-result-customers', require('./components/SearchBarResultCustomers.vue').default);
 Vue.component('detail-customer', require('./components/DetailCustomer.vue').default);
+Vue.component('detail-customer-locations', require('./components/DetailCustomerLocations.vue').default);
 Vue.component('detail-game', require('./components/DetailGame.vue').default);
 Vue.component('rental-form', require('./components/RentalForm.vue').default);
 

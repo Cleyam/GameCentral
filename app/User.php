@@ -44,9 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function rentals()
+    public function games()
     {
-        return $this->belongsToMany('App\Rental', 'rentals', 'users_id', 'games_id');
+        return $this->belongsToMany('App\Game', 'rentals', 'users_id', 'games_id')->withPivot('dateStart')->withPivot('dateEnd');
     }
 
     // Employee Methods
@@ -131,6 +131,7 @@ class User extends Authenticatable
         $customer = User::where('auth', 'customer')
             ->where('deleted_at', null)
             ->where('id', $id)
+            ->with('games')
             ->select('*')->first();
         return $customer;
     }
@@ -180,7 +181,6 @@ class User extends Authenticatable
             ->orWhere('surname', 'LIKE', '%' . $request->input('search') . '%')
             ->where('auth', 'customer')
             ->where('deleted_at', null)
-            ->with('rentals')
             ->select('*')->get();
         if (count($result) > 0) {
             return $result;

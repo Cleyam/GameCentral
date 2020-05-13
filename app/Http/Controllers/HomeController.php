@@ -91,6 +91,7 @@ class HomeController extends Controller
     public function customer($id)
     {
         $customer = User::getCustomer($id);
+        dd($customer);
         return view('resultCustomer')->with('customer', $customer);
     }
 }
