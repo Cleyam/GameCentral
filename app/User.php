@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminUserRequest;
 use App\Http\Requests\SearchRequest;
+use App\Http\Requests\RentRequest;
 
 class User extends Authenticatable
 {
@@ -42,6 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rentals()
+    {
+        return $this->belongsToMany('App\Rental', 'rentals', 'users_id', 'games_id');
+    }
 
     // Employee Methods
 
@@ -174,6 +180,7 @@ class User extends Authenticatable
             ->orWhere('surname', 'LIKE', '%' . $request->input('search') . '%')
             ->where('auth', 'customer')
             ->where('deleted_at', null)
+            ->with('rentals')
             ->select('*')->get();
         if (count($result) > 0) {
             return $result;

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\AdminGameRequest;
 use App\Http\Requests\SearchRequest;
+use App\Http\Requests\RentRequest;
 
 class Game extends Model
 {
@@ -173,10 +174,19 @@ class Game extends Model
         }
     }
 
-    public static function rent($idGame, $idCustomer)
+    public static function decreaseStock(RentRequest $request)
     {
-        Game::find($idGame)
-            ->rentals()
-            ->attach($idGame, ['modes_id' => $idCustomer, 'games_id' => $idGame]);
+        $rentGame =  Game::where('deleted_at', null)->where('id', $request->input('game'))
+            ->decrement('stock', 1);
+
+        return $rentGame;
+    }
+
+    public static function increaseStock(RentRequest $request)
+    {
+        $rentGame =  Game::where('deleted_at', null)->where('id', $request->input('game'))
+            ->increment('stock', 1);
+
+        return $rentGame;
     }
 }

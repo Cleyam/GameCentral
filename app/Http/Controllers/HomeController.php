@@ -67,10 +67,6 @@ class HomeController extends Controller
     public function rentalform($idGame)
     {
         $game = Game::getGame($idGame);
-        $genres = Genre::getGenres();
-        $modes = Mode::getModes();
-        $platforms = Platform::getPlatforms();
-        $developers = Developer::getDevelopers();
         $data = User::getCustomers();
         foreach ($data as $customer) {
             $customers[] = $customer['name'];
@@ -88,6 +84,7 @@ class HomeController extends Controller
     public function rent(RentRequest $request)
     {
         Rental::rentGame($request);
+        Game::decreaseStock($request);
         return view('rentComplete');
     }
 
