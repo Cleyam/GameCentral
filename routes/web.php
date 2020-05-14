@@ -25,6 +25,7 @@ Route::get('game/rental/{id}', 'HomeController@rentalform');
 Route::post('game/rental/{id}', 'HomeController@rent');
 Route::get('/api/search', 'HomeController@apiCustomers');
 Route::get('customer/{id}', 'HomeController@customer');
+Route::post('customer/{id}', 'HomeController@return');
 
 
 // ADMIN ROUTES

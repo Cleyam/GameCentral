@@ -15,25 +15,34 @@
                 <td>{{ game.pivot.dateEnd.substring(0, 10) }}</td>
 
                 <td>
-                    <a
-                        :href="'return/' + game.id"
-                        class=""
-                        v-if="game.pivot.deleted_at == null"
-                    >
+                    <form :action="customer.id" method="post">
+                        <input type="hidden" name="_token" :value="csrf" />
+                        <input type="hidden" name="game" :value="game.id" />
+                        <input
+                            type="hidden"
+                            name="customer"
+                            :value="customer.id"
+                        />
+                        <input
+                            type="hidden"
+                            name="customer"
+                            :value="customer.id"
+                        />
                         <button
+                            v-if="game.pivot.deleted_at == null"
+                            type="submit"
                             class="btn bg-orange text-light mx-auto font-weight-bold mb-4 shadow-sm"
                         >
                             {{ toreturn }}
                         </button>
-                    </a>
-                    <a href="" class="" v-else>
                         <button
+                            v-else
                             class="btn bg-orange text-light mx-auto font-weight-bold mb-4 shadow-sm"
                             disabled
                         >
                             {{ returned }}
                         </button>
-                    </a>
+                    </form>
                 </td>
             </tr>
         </tbody>

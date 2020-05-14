@@ -93,4 +93,12 @@ class HomeController extends Controller
         $customer = User::getCustomer($id);
         return view('resultCustomer')->with('customer', $customer);
     }
+
+    public function return(RentRequest $request)
+    {
+        Rental::returnGame($request);
+        Game::increaseStock($request);
+        $customer = User::getCustomer($request->customer);
+        return view('resultCustomer')->with('customer', $customer);
+    }
 }

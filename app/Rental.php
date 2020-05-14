@@ -30,4 +30,13 @@ class Rental extends Model
         ]);
         return $rentGame;
     }
+
+    public static function returnGame(RentRequest $request)
+    {
+        $returnGame = Rental::where('deleted_at', null)
+            ->where('users_id', $request->input('customer'))
+            ->where('games_id', $request->input('game'))
+            ->delete();
+        return $returnGame;
+    }
 }
