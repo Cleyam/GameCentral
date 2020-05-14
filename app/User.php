@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function games()
     {
-        return $this->belongsToMany('App\Game', 'rentals', 'users_id', 'games_id')->withPivot('dateStart')->withPivot('dateEnd');
+        return $this->belongsToMany('App\Game', 'rentals', 'users_id', 'games_id')->withPivot('dateStart')->withPivot('dateEnd')->withPivot('deleted_at');
     }
 
     // Employee Methods
