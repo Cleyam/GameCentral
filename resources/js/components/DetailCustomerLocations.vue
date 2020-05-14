@@ -40,7 +40,9 @@
                             class="btn bg-orange text-light mx-auto font-weight-bold mb-4 shadow-sm"
                             disabled
                         >
-                            {{ returned }}
+                            {{ returned }}<br />{{
+                                game.pivot.deleted_at.substring(0, 10)
+                            }}
                         </button>
                     </form>
                 </td>
